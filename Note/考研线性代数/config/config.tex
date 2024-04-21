@@ -1,5 +1,6 @@
 \usepackage{amsmath}   % 数学公式
 \usepackage[dvipsnames]{xcolor}
+\usepackage{ulem}
 \usepackage{amsthm}    % 定理环境
 \usepackage{amssymb}   % 更多公式符号
 \usepackage{graphicx}  % 插图
@@ -14,6 +15,7 @@
 \usepackage{svg}
 \usepackage{lmodern}
 \usepackage{anyfontsize}
+\usepackage{setspace}
 \usepackage[colorlinks,linkcolor=black]{hyperref}
 \usepackage{supertabular}
 \usepackage{tcolorbox}
@@ -25,14 +27,13 @@
 \tcbuselibrary{breakable}
 \tcbuselibrary{most}
 \newcounter{problemname}
-
 \newenvironment{solution}{\par\noindent\textbf{解答. }}{\par}
 \newenvironment{note}{\par\noindent\textbf{题目\arabic{problemname}的注记. }}{\par}
 \definecolor{shadecolor}{RGB}{241, 241, 255}
 \newenvironment{problem}{\begin{shaded}\stepcounter{problemname}\par\noindent\textbf{题目\arabic{problemname}. }}{\end{shaded}\par}
 \allowdisplaybreaks
 \graphicspath{ {figure/},{../figure/}, {config/}, {../config/} }  % 配置图形文件检索目录
-\linespread{1.5} % 行高
+\linespread{1.9} % 行高
 
 % 页码设置
 \geometry{top=25.4mm,bottom=25.4mm,left=20mm,right=20mm,headheight=2.17cm,headsep=4mm,footskip=12mm}
@@ -77,6 +78,8 @@
     % enhanced, drop fuzzy shadow,  % 显示阴影
 }
 {lem}
+
+
 \newtcbtheorem[auto counter, number within=section, list type=subsubsection, list inside=toc]{them}{定理}
 {
     colback=Salmon!20, colframe=Salmon!90!Black,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
