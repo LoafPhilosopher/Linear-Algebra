@@ -90,11 +90,14 @@
     \end{defn}
     \begin{defn}{行列式的逆序数法定义}{}
     $n(n\geqslant2)$阶行列式:$$\begin{vmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\a_{21}&a_{22}&\cdots&a_{2n}\\\vdots&\vdots&&\vdots\\a_{n1}&a_{n2}&\cdots&a_{nn}\end{vmatrix}=\sum_{j_{1}j_{2}\cdots j_{n}}(-1)^{r(j_{1}j_{2}\cdots j_{n})}a_{1j_{1}}a_{2j_{2}}\cdots a_{nj_{n}}$$
-    这里 $\sum_{j_1j_2\cdots j_n} $表示对所有$n$个列下标排列\footnote{排列:由$n$个数$1,2,...,n$组成的一个有序数组称为一个$n$级排列,如$23145$是一个$5$级排列,$41352$也是一个$5$级排列. $n$级排列共有 $n!$ 个.}求和,故为$n!$项之和.注意到行下标已经顺排,而列下标是任一个$n$级排列,故每项由取自不同行、不同列的$n$个元素的乘积组成,每项的正、负号取决于$(-1)^{\tau(j_1j_2\cdots j_n)}$.当列下标为奇排列\footnote{逆序:在一个$n$级排列$i_1i_2...i_s...i_r...i_n$中,若$i_s>i_t$,且$i_{s}$排在$i_{t}$前面,则称这两个数构成一个逆序.\\逆序数:一个排列中,逆序的总数称为该排列的逆序数,记作 $\tau(i_1i_2\cdots i_n)$,如 $\tau(231546)=3$ , $\tau(621534)=8$.由小到大顺排的排列称为自然排序,如 12345,显然,自然排序的逆序数为 0.\\奇排列和偶排列:排列的逆序数为奇数时,该排列称为奇排列;排列的逆序数为偶数时,该排列称为偶排列.}时,应附加负号;当列下标为偶排列时,应附加正号.
+    这里 $\sum_{j_1j_2\cdots j_n} $表示对所有$n$个列下标排列\footnote{排列:由$n$个数$1,2,...,n$组成的一个有序数组称为一个$n$级排列,如$23145$是一个$5$级排列,$41352$也是一个$5$级排列. $n$级排列共有 $n!$ 个.}求和,故为$n!$项之和.注意到行下标已经顺排,而列下标是任一个$n$级排列,\textbf{故每项由取自不同行、不同列的$n$个元素的乘积组成},每项的正、负号取决于$(-1)^{\tau(j_1j_2\cdots j_n)}$.当列下标为奇排列\footnote{逆序:在一个$n$级排列$i_1i_2...i_s...i_r...i_n$中,若$i_s>i_t$,且$i_{s}$排在$i_{t}$前面,则称这两个数构成一个逆序.\\逆序数:一个排列中,逆序的总数称为该排列的逆序数,记作 $\tau(i_1i_2\cdots i_n)$,如 $\tau(231546)=3$ , $\tau(621534)=8$.由小到大顺排的排列称为自然排序,如 12345,显然,自然排序的逆序数为 0.\\奇排列和偶排列:排列的逆序数为奇数时,该排列称为奇排列;排列的逆序数为偶数时,该排列称为偶排列.}时,应附加负号;当列下标为偶排列时,应附加正号.
     \end{defn}
     \begin{defn}{行列式的展开定理定义}{}
         \begin{enumerate}
-            \item 余子式:在$n$阶行列式中，去掉元素$a_{ij}$所在的第$i$行、第$j$ 列元素，由剩下的元素按原来的位置与顺序组成的$n-1$ 阶行列式称为元素$a_{ij}$的余子式，记作$M_{ij}$,即$$\begin{gathered}M_{ij}=\begin{vmatrix}a_{11}&\cdots&a_{1,j-1}&a_{1,j+1}&\cdots&a_{1n}\\\vdots&&\vdots&\vdots&&\vdots\\a_{i-1,1}&\cdots&a_{i-1,j-1}&a_{i-1,j+1}&\cdots&a_{i-1,n}\\a_{i+1,1}&\cdots&a_{i+1,j-1}&a_{i+1,j+1}&\cdots&a_{i+1,n}\\\vdots&&\vdots&\vdots&&\vdots\\a_{n!}&\cdots&a_{n,j-1}&a_{n,j+1}&\cdots&a_{nn}\end{vmatrix}.\end{gathered}$$
+            \item 余子式:在$n$阶行列式中，去掉元素$a_{ij}$所在的第$i$行、第$j$ 列元素，由剩下的元素按原来的位置与顺序组成的$n-1$ 阶行列式称为元素$a_{ij}$的余子式，记作$M_{ij}$,即
+            $$
+                \begin{gathered}M_{ij}=\begin{vmatrix}a_{11}&\cdots&a_{1,j-1}&a_{1,j+1}&\cdots&a_{1n}\\\vdots&&\vdots&\vdots&&\vdots\\a_{i-1,1}&\cdots&a_{i-1,j-1}&a_{i-1,j+1}&\cdots&a_{i-1,n}\\a_{i+1,1}&\cdots&a_{i+1,j-1}&a_{i+1,j+1}&\cdots&a_{i+1,n}\\\vdots&&\vdots&\vdots&&\vdots\\a_{n!}&\cdots&a_{n,j-1}&a_{n,j+1}&\cdots&a_{nn}\end{vmatrix}.\end{gathered}
+                $$
             \item 代数余子式:余子式$M_{ij}$乘(-1)$^{i+j}$后称为$a_{ij}$的代数余子式,记作$A_{ij}$,即$$A_{ij}=(-1)^{i+j}M_{ij}$$显然也有$M_{ij}=(-1)^{i+j}A_{ij}$
             \item 行列式按某一行展开:行列式的值等于行列式的某行(列)元素分别乘其相应的代数余子式后再求和,即\footnote{目的:降阶,即$n$阶降成$n$个$n-1$阶.展开原则:某一行(列)为$0$的元素越多越好}
             $$
@@ -107,19 +110,19 @@
             \item 主对角线行列式(上下三角形行列式):$$\begin{vmatrix}a_{11}&a_{12}&\cdots&a_{1n}\\0&a_{22}&\cdots&a_{2n}\\\vdots&\vdots&&\vdots\\0&0&\cdots&a_{nn}\end{vmatrix}=\begin{vmatrix}a_{11}&0&\cdots&0\\a_{21}&a_{22}&\cdots&0\\\vdots&\vdots&&\vdots\\a_{n1}&a_{n2}&\cdots&a_{nn}\end{vmatrix}=\begin{vmatrix}a_{11}&0&\cdots&0\\0&a_{22}&\cdots&0\\\vdots&\vdots&&\vdots\\0&0&\cdots&a_{nn}\end{vmatrix}=\prod_{i=1}^na_{ii} .$$
             \item 副对角线行列式:$$\begin{vmatrix}a_{11}&\cdots&a_{1,n-1}&a_{1n}\\a_{21}&\cdots&a_{2,n-1}&0\\\vdots&&\vdots&\vdots\\a_{n1}&\cdots&0&0\end{vmatrix}=\begin{vmatrix}0&\cdots&0&a_{1n}\\0&\cdots&a_{2,n-1}&a_{2n}\\\vdots&&\vdots&\vdots\\a_{n1}&\cdots&a_{n,n-1}&a_{nn}\end{vmatrix}=\begin{vmatrix}0&\cdots&0&a_{1n}\\0&\cdots&a_{2,n-1}&0\\\vdots&&\vdots&\vdots\\a_{n1}&\cdots&0&0\end{vmatrix} $$=$(-1)^{\frac{n(n-1)}{2}}a_{1n}a_{2,n-1}\cdots a_{n1}$
             \item 拉普拉斯行列式:设$A$为$m$阶矩阵,$B$为$n$阶矩阵,则:$$\begin{gathered}\begin{vmatrix}A&O\\O&B\end{vmatrix}=\begin{vmatrix}A&C\\O&B\end{vmatrix}=\begin{vmatrix}A&O\\C&B\end{vmatrix}=\begin{vmatrix}A\end{vmatrix}\begin{vmatrix}B\end{vmatrix},\\\begin{vmatrix}O&A\\B&O\end{vmatrix}=\begin{vmatrix}C&A\\B&O\end{vmatrix}=\begin{vmatrix}O&A\\B&C\end{vmatrix}=(-1)^{mn}\begin{vmatrix}A\end{vmatrix}\begin{vmatrix}B\end{vmatrix} .\end{gathered}$$
-            \item 范德蒙德行列式:$$\begin{vmatrix}1&1&\cdots&1\\x_1&x_2&\cdots&x_n\\x_1^2&x_2^2&\cdots&x_n^2\\\vdots&\vdots&&\vdots\\x_1^{n-1}&x_2^{n-1}&\cdots&x_n^{n-1}\end{vmatrix}=\prod_{1\leqslant i<j\leqslant n}(x_j-x_i).$$
+            \item 范德蒙德行列式\footnote{以三阶范德蒙行列式$\left.\left|\begin{array}{cccc}1&1&1\\\\x_1&x_2&x_3\\\\x_1^2&x_2^2&x_3^2\end{array}\right.\right|$为例,该行列式的值为$(x_3-x_2)(x_2-x_1)$}:$$\begin{vmatrix}1&1&\cdots&1\\x_1&x_2&\cdots&x_n\\x_1^2&x_2^2&\cdots&x_n^2\\\vdots&\vdots&&\vdots\\x_1^{n-1}&x_2^{n-1}&\cdots&x_n^{n-1}\end{vmatrix}=\prod_{1\leqslant i<j\leqslant n}(x_j-x_i).$$
         \end{enumerate}
     \end{criterion}
     \section{行列式的性质}
     \begin{enumerate}
-        \item 行列互换,其值不变,即$|A|=|A^T|$,即$ \begin{vmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{vmatrix}=a_{11}a_{22}-a_{12}a_{21}= \begin{vmatrix}a_{11}&a_{21}\\a_{12}&a_{22}\end{vmatrix}=a_{11}a_{22}-a_{12}a_{21}$.该条性质说明了行列式行列等价
+        \item 行列互换,其值不变,即$|A|=|A^T|$,即$ \begin{vmatrix}a_{11}&a_{12}\\a_{21}&a_{22}\end{vmatrix}=a_{11}a_{22}-a_{12}a_{21}= \begin{vmatrix}a_{11}&a_{21}\\a_{12}&a_{22}\end{vmatrix}=a_{11}a_{22}-a_{12}a_{21}$.该条性质说明了 \textcolor{red}{行列式行列等价}
         \\几何解释:很显然平行四边形两条邻边互换,它的面积依然不变.如下图所示:
         \begin{center}
             \tikzset{every picture/.style={line width=0.75pt}} %set default line width to 0.75pt        
                 \begin{tikzpicture}[x=0.75pt,y=0.75pt,yscale=-1,xscale=1]
                     \draw  (30,249.76) -- (241.14,249.76)(51.11,103.57) -- (51.11,266) (234.14,244.76) -- (241.14,249.76) -- (234.14,254.76) (46.11,110.57) -- (51.11,103.57) -- (56.11,110.57)  ;
                     \draw    (51.11,249.76) -- (146.14,227.57) ;
-                    \draw [shift={(103.5,237.53)}, rotate = 166.86] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle    ;
+                    \draw [shift={(103.5,237.53)}, rotate = 166.86] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (10.72,-5.15) -- (0,0) -- (10.72,5.15) -- (7.12,0) -- cycle;
                     \draw    (78.14,207.57) -- (51.11,249.76) ;
                     \draw [shift={(68.14,223.19)}, rotate = 122.65] [fill={rgb, 255:red, 0; green, 0; blue, 0 }  ][line width=0.08]  [draw opacity=0] (8.93,-4.29) -- (0,0) -- (8.93,4.29) -- cycle    ;
                     \draw  [dash pattern={on 4.5pt off 4.5pt}]  (78.14,207.57) -- (173.17,185.39) ;
@@ -175,11 +178,46 @@
             $$
         \end{proof}
     \end{enumerate}
+    \section{克拉默法则}
+    \begin{defn}{克拉默法则}{}
+        对$n$个方程$n$个未知数(这是前提)的非齐次线性方程组
+        $$
+            \begin{cases}
+                a_{11}x_1+a_{12}x_2+\cdots+a_{1n}x_n&=b_1\:,\\
+                a_{21}x_1+a_{22}x_2+\cdots+a_{2n}x_n&=b_2\:,\\ 
+                &\cdots ,\\
+                a_{n1}x_1+a_{n2}x_2+\cdots+a_{nn}x_n&=b_n\:,
+            \end{cases}
+        $$
+        若系数行列式
+        $$
+        D=\begin{vmatrix}
+            a_{11}&a_{12}&\ldots&a_{1n}\\
+            a_{21}&a_{22}&\ldots&a_{2n}\\
+            \cdots & \cdots & \cdots & \cdots\\
+            a_{n1}&a_{n2}&\ldots&a_{nn}
+        \end{vmatrix} \neq 0
+        $$
+        ,则方程组有唯一解，且解为
+        $$
+            x_i=\frac{D_i}{D}\:,\:i=1,\:2,\cdots,n\:.
+        $$
+        式中，$D_i$是由常数项$b_1, b_2, \cdotp \cdotp \cdotp , b_n$替换$D$中 第$i$列元素得到的行列式.
+        对$n$个方程$n$个未知数(这是前提)的齐次线性方程组
+        $$
+            \begin{cases}
+                a_{11}x_1+a_{12}x_2+&\cdots+a_{1n}x_n=0\:,\\
+                a_{21}x_1+a_{22}x_2+&\cdots+a_{2n}x_n=0\:,\\
+                &\cdots
+                \\a_{n1}x_1+a_{n2}x_2+&\cdots+a_{nn}x_n=0\:,
+            \end{cases}
+        $$
+        若$D\neq0$,则齐次方程组只有零解；若$D=0$,则齐次方程组有非零解.
+    \end{defn}
     \section{行列式的计算}
     
     \section{余子式与代数余子式的计算}
-    \section{克拉默法则}
-    
+
     %  ############################ 正文部分
         \ifx\allfiles\undefined
     \end{sloppypar}
