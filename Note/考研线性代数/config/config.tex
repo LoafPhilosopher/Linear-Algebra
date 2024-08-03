@@ -10,9 +10,14 @@
 \usepackage{unicode-math}
 \usepackage{extarrows}
 \usepackage{subfigure}
+\usepackage{pifont}
+\usepackage{pdfpages} %本文最重要的一个包，就是将PDF文件加入到封面位置
 \usepackage{extarrows}
 \usepackage{footnote}
 \usepackage{svg}
+\usepackage{arydshln}
+\usepackage{booktabs}
+\usepackage{multirow}
 \usepackage{lmodern}
 \usepackage{anyfontsize}
 \usepackage{setspace}
@@ -27,22 +32,22 @@
 \tcbuselibrary{breakable}
 \tcbuselibrary{most}
 \newcounter{problemname}
+\newenvironment{problem}{\begin{shaded}\stepcounter{problemname}\par\noindent\textbf{题目\arabic{problemname}. }}{\end{shaded}\par}
 \newenvironment{solution}{\par\noindent\textbf{解答. }}{\par}
 \newenvironment{note}{\par\noindent\textbf{题目\arabic{problemname}的注记. }}{\par}
 \definecolor{shadecolor}{RGB}{241, 241, 255}
-\newenvironment{problem}{\begin{shaded}\stepcounter{problemname}\par\noindent\textbf{题目\arabic{problemname}. }}{\end{shaded}\par}
 \allowdisplaybreaks
 \graphicspath{ {figure/},{../figure/}, {config/}, {../config/} }  % 配置图形文件检索目录
 \linespread{1.9} % 行高
-
+\setlength\abovedisplayskip{1pt}
+\setlength\belowdisplayskip{1pt}
 % 页码设置
 \geometry{top=25.4mm,bottom=25.4mm,left=20mm,right=20mm,headheight=2.17cm,headsep=4mm,footskip=12mm}
 
 % 设置列表环境的上下间距
-\setenumerate[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-\setitemize[1]{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-\setdescription{itemsep=5pt,partopsep=0pt,parsep=\parskip,topsep=5pt}
-
+\setenumerate[1]{itemsep=2pt,partopsep=0pt,parsep=\parskip,topsep=2pt}
+\setitemize[1]{itemsep=2pt,partopsep=0pt,parsep=\parskip,topsep=2pt}
+\setdescription{itemsep=2pt,partopsep=0pt,parsep=\parskip,topsep=2pt}                              %
 % 定理环境
 % ########## 定理环境 start ####################################
 
@@ -54,8 +59,8 @@
     before upper={\parindent10pt\noindent},  % 支持缩进。\noindent：首行不缩进
     % left = 2mm, %文字离线框左边的边距
     % right = 1mm,%同上
-    % top = 1mm,%同上
-    % bottom = 1mm,%同上
+    top = 1mm,%同上
+    bottom = 1mm,%同上
     % arc is angular = 1mm, % 棱角线框
     % sharp corners, % 直角线框
     % enhanced,frame hidden, % 隐藏线框
@@ -63,15 +68,15 @@
 }
 {def}
 
-\newtcbtheorem[auto counter, number within=section, list type=subsubsection, list inside=toc]{lemma}{引理}
+\newtcbtheorem[auto counter, number within=section, list type=subsubsection, list inside=toc]{lemma}{总结}
 {
-    colback=SeaGreen!10!CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
+    colframe=blue,colback=blue!3!,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
     breakable, %支持跨页
     before upper={\parindent10pt\noindent},  % 支持缩进。\noindent：首行不缩进
     % left = 2mm, %文字离线框左边的边距
     % right = 1mm,%同上
-    % top = 1mm,%同上
-    % bottom = 1mm,%同上
+    top = 1mm,%同上
+    bottom = 1mm,%同上
     % arc is angular = 1mm, % 棱角线框
     % sharp corners, % 直角线框
     % enhanced,frame hidden, % 隐藏线框
@@ -82,13 +87,13 @@
 
 \newtcbtheorem[auto counter, number within=section, list type=subsubsection, list inside=toc]{them}{定理}
 {
-    colback=Salmon!20, colframe=Salmon!90!Black,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
+    colback=CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
     breakable, %支持跨页
     before upper={\parindent10pt\noindent},  % 支持缩进。\noindent：首行不缩进
     % left = 2mm, %文字离线框左边的边距
     % right = 1mm,%同上
-    % top = 1mm,%同上
-    % bottom = 1mm,%同上
+    top = 1mm,%同上
+    bottom = 1mm,%同上
     % arc is angular = 1mm, % 棱角线框
     % sharp corners, % 直角线框
     % enhanced,frame hidden, % 隐藏线框
@@ -97,13 +102,13 @@
 {them}
 \newtcbtheorem[auto counter, number within=section, list type=subsubsection, list inside=toc]{criterion}{注}
 {
-    colback=CornflowerBlue!10,colframe=RoyalPurple!55!Aquamarine!100!,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
+    colback=blue!10!white,colframe=blue!50!black,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
     breakable, %支持跨页
     before upper={\parindent10pt\noindent},  % 支持缩进。\noindent：首行不缩进
     % left = 2mm, %文字离线框左边的边距
     % right = 1mm,%同上
-    % top = 1mm,%同上
-    % bottom = 1mm,%同上
+    top = 1mm,%同上
+    bottom = 1mm,%同上
     % arc is angular = 1mm, % 棱角线框
     % sharp corners, % 直角线框
     % enhanced,frame hidden, % 隐藏线框
@@ -118,15 +123,29 @@
     before upper={\parindent10pt\noindent},  % 支持缩进。\noindent：首行不缩进
     % left = 2mm, %文字离线框左边的边距
     % right = 1mm,%同上
-    % top = 1mm,%同上
-    % bottom = 1mm,%同上
+    top = 1mm,%同上
+    bottom = 1mm,%同上
     % arc is angular = 1mm, % 棱角线框
     % sharp corners, % 直角线框
     % enhanced,frame hidden, % 隐藏线框
     % enhanced, drop fuzzy shadow,  % 显示阴影
 }
 {cor}
-% colback=red!5,colframe=red!75!black
+\newtcbtheorem[auto counter, number within=section, list type=subsubsection, list inside=toc]{conclusion}{结论}
+{
+    colback=red!5,colframe=red!75!black,fonttitle=\bfseries, title={Comment \thetcbcounter}, list entry={Comment \thetcbcounter\quad}, %标题
+    breakable, %支持跨页
+    before upper={\parindent10pt\noindent},  % 支持缩进。\noindent：首行不缩进
+    % left = 2mm, %文字离线框左边的边距
+    % right = 1mm,%同上
+    top = 1mm,%同上
+    bottom = 1mm,%同上
+    % arc is angular = 1mm, % 棱角线框
+    % sharp corners, % 直角线框
+    % enhanced,frame hidden, % 隐藏线框
+    % enhanced, drop fuzzy shadow,  % 显示阴影
+}
+{con}
 
 % ######### 定理环境 end  #####################################
 
@@ -153,3 +172,20 @@
 
 % 用于空行\myspace{1} 表示空一行 填 2 表示空两行  
 \newcommand{\myspace}[1]{\par\vspace{#1\baselineskip}}
+
+\ExplSyntaxOn
+\clist_set:Nn \l_tmpa_clist {72, 72, 72, 72, 72, 73, 73, 73, 73, 73}
+\cs_new:Npn \__ljguo_get_rating:n #1 {
+    \int_set:Nn \l_tmpa_int { 6 - #1 }
+    \int_set:Nn \l_tmpb_int { 10 - #1 }
+    \group_begin:
+    \color_select:n { red }
+    \int_step_inline:nnn { \l_tmpa_int } { \l_tmpb_int }
+    {
+        \ding{\clist_item:Nn \l_tmpa_clist { ##1  }}
+    }
+    \group_end:
+}
+\let\getRating\__ljguo_get_rating:n
+% 评级命令:\getRating{n}
+\ExplSyntaxOff
